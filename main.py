@@ -1,9 +1,17 @@
-from stats import contar_palabras, cantidad_caracteres
+from stats import contar_palabras, ordenada
 
-def main():
-    contar_palabras()
-    caracteres = cantidad_caracteres()
-    print(caracteres)
-    
-main()
+print("============== BOOKBOT ==============")
+print("Analyzing book found at books/frankenstein.txt...")
 
+# ----------- Word Count ----------
+print("---------- Word Count ----------")
+contar_palabras()
+
+# ----------- Character Count ----------
+print("---------- Character Count ----------")
+lista_ordenada = ordenada()
+
+for item in lista_ordenada:
+    print(f"{item['char']}: {item['num']}")
+
+print("============== END ==============")

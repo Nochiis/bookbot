@@ -6,12 +6,12 @@ def contar_palabras():
     libro = get_book_text()
     words = libro.split()
     letras = len(words)
-    num_words = f"{letras} words found in the document"
+    num_words = f'Found {letras} total words'
     print(num_words)
 
 def cantidad_caracteres():
     libro = get_book_text()
-    libro = libro.lower() 
+    libro = libro.lower()
     conteo = {}
 
     for caracter in libro:
@@ -20,4 +20,19 @@ def cantidad_caracteres():
         else:
             conteo[caracter] = 1
 
-    return conteo 
+    return conteo
+
+# función para ordenar por 'num'
+def sort_on(item):
+    return item["num"]
+
+def ordenada():
+    caracteres = cantidad_caracteres()
+    lista = []
+
+    for letra in caracteres:
+        if letra.isalpha():  # solo letras
+            lista.append({"char": letra, "num": caracteres[letra]})
+
+    lista.sort(reverse=True, key=sort_on)
+    return lista
